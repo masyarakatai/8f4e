@@ -1,8 +1,8 @@
 import type { State } from '@8f4e/editor-state-types';
 import { describe, expect, it } from 'vitest';
+import { parseEditorDirectives } from '~/pureHelpers/testingUtils/testUtils';
 import { parseBlockDirectives } from '../../utils/parseBlockDirectives';
 import { deriveDirectiveState, directivePlugins } from './registry';
-import { parseEditorDirectives } from './utils';
 
 describe('directive registry', () => {
 	it('parses registered directives from code', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseEditorDirectives } from '../utils';
+import { parseEditorDirectives } from '~/pureHelpers/testingUtils/testUtils';
 import { createSwitchDirectiveData } from './data';
 import switchDirective from './plugin';
 

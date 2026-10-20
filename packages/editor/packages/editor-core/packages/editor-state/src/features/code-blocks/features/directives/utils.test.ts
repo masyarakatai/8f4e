@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
+import { parseEditorDirectives } from '~/pureHelpers/testingUtils/testUtils';
 import {
 	createDirectivePlugin,
 	normalizeEditorDirectiveRecords,
 	parseDirectiveComments,
 	parseDirectiveLineRecords,
-	parseEditorDirectives,
 	serializeDirectiveComments,
 } from './utils';
 

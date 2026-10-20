@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseEditorDirectives } from '../utils';
+import { parseEditorDirectives } from '~/pureHelpers/testingUtils/testUtils';
 import { createWaveDirectiveData } from './data';
 import waveDirective, { wave2Directive, wave4Directive } from './plugin';
 

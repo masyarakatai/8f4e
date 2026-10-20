@@ -2,12 +2,18 @@ import type {
 	CodeBlockGraphicData,
 	DirectiveDerivedState,
 	DirectiveDeriveOptions,
+	EditorDirectivePlugin,
 	EventDispatcher,
+	ParsedEditorDirective,
 	State,
 	Viewport,
 } from '@8f4e/editor-state-types';
 import { ROOT_PROJECT_GROUP_PATH } from '@8f4e/language-spec';
 import { deriveDirectiveState } from '~/features/code-blocks/features/directives/registry';
+import {
+	normalizeEditorDirectiveRecords,
+	parseDirectiveRecords,
+} from '~/features/code-blocks/features/directives/utils';
 import getCodeBlockNameFromSource from '~/features/code-blocks/utils/getCodeBlockNameFromSource';
 import { parseBlockDirectives } from '~/features/code-blocks/utils/parseBlockDirectives';
 
@@ -165,6 +171,10 @@ export function deriveDirectiveStateForCode(
 	overrides: Partial<CodeBlockGraphicData> = {}
 ): DirectiveDerivedState {
 	return deriveDirectiveStateForMockCodeBlock(createMockCodeBlock({ code, ...overrides }), options);
+}
+
+export function parseEditorDirectives(code: string[], plugins: EditorDirectivePlugin[]): ParsedEditorDirective[] {
+	return normalizeEditorDirectiveRecords(parseDirectiveRecords(code), plugins);
 }
 
 /**

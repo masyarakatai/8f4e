@@ -140,8 +140,8 @@ export function createDirectivePlugin(
  * editor (`@`) directives only, resolves aliases to canonical plugin names, and
  * applies the `allowTrailingComment` gate for trailing records.
  *
- * Both `parseEditorDirectives` and `deriveDirectiveState` delegate to this so
- * alias normalization lives in exactly one place.
+ * The directive registry delegates to this so alias normalization lives in
+ * exactly one place.
  */
 export function normalizeEditorDirectiveRecords(
 	records: ParsedDirectiveRecord[],
@@ -171,10 +171,6 @@ export function normalizeEditorDirectiveRecords(
 			},
 		];
 	});
-}
-
-export function parseEditorDirectives(code: string[], plugins: EditorDirectivePlugin[]): ParsedEditorDirective[] {
-	return normalizeEditorDirectiveRecords(parseDirectiveRecords(code), plugins);
 }
 
 export function hasDirective(code: string[], name: string): boolean {
